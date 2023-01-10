@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+          <h2>文字入力欄</h2>
+          <v-text-field
+            placeholder="自由に入力してください"
+            outlined
+            v-model="message"
+          ></v-text-field>
+        </v-container>
+        <v-container>
+          <v-row>
+            <v-col cols="4">
+              <h3>YouTubeのURL貼り付け</h3>
+              <v-text-field
+                placeholder="YouTubeのURLを入力してください（サムネイル画像取得）"
+                outlined
+                v-model="url"
+              ></v-text-field>
+              <v-img :src="thum"></v-img>
+            </v-col>
+            <v-col cols="8" ml-6>
+              <!-- <p>{{ message }}</p>
+              <p class="font-demo1">{{ message }}</p> -->
+              <v-checkbox v-model="check_rinfont">
+                <template v-slot:label>
+                  <div class="rinfont">
+                    りんふぉんと
+                  </div>
+                </template>
+              </v-checkbox>
+              <p class="rinfont" v-if="check_rinfont">{{ message }}</p>
+
+              <v-checkbox v-model="check_honokamin">
+                <template v-slot:label>
+                  <div class="honokamin">
+                    ほのか明朝
+                  </div>
+                </template>
+              </v-checkbox>
+              <p class="honokamin" v-if="check_honokamin">{{ message }}</p>
+
+              <v-checkbox v-model="check_utamin_hoshi0">
+                <template v-slot:label>
+                  <div class="utamin-hoshi0">
+                    うたミン_ほし
+                  </div>
+                </template>
+              </v-checkbox>
+              <p class="utamin-hoshi0" v-if="check_utamin_hoshi0">{{ message }}</p>              
+            </v-col>
+          </v-row>
+        </v-container>
+
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        message: 'テスト入力だよー',
+        url: "https://www.youtube.com/watch?v=ziSp0U-JhMU",
+        check_rinfont: true,
+        check_honokamin: true,
+        check_utamin_hoshi0: true,
+      },
+      computed: {
+        thum: function() {
+        return this.url.replace("https://www.youtube.com/watch?v=", "http://img.youtube.com/vi/")+"/mqdefault.jpg"
+      }
+    }
+    })
+  </script>
+</body>
+</html>
