@@ -33,32 +33,32 @@
             <v-col cols="8" ml-6>
               <!-- <p>{{ message }}</p>
               <p class="font-demo1">{{ message }}</p> -->
-              <v-checkbox v-model="check_rinfont">
+              <v-checkbox v-model="isRinfont">
                 <template v-slot:label>
                   <div class="rinfont">
                     りんふぉんと
                   </div>
                 </template>
               </v-checkbox>
-              <p class="rinfont" v-if="check_rinfont">{{ message }}</p>
+              <p class="rinfont" v-if="isRinfont">{{ message }}</p>
 
-              <v-checkbox v-model="check_honokamin">
+              <v-checkbox v-model="isHonokamin">
                 <template v-slot:label>
                   <div class="honokamin">
                     ほのか明朝
                   </div>
                 </template>
               </v-checkbox>
-              <p class="honokamin" v-if="check_honokamin">{{ message }}</p>
+              <p class="honokamin" v-if="isHonokamin">{{ message }}</p>
 
-              <v-checkbox v-model="check_utamin_hoshi0">
+              <v-checkbox v-model="isUtaminHoshi0">
                 <template v-slot:label>
                   <div class="utamin-hoshi0">
                     うたミン_ほし
                   </div>
                 </template>
               </v-checkbox>
-              <p class="utamin-hoshi0" v-if="check_utamin_hoshi0">{{ message }}</p>              
+              <p class="utamin-hoshi0" v-if="isUtaminHoshi0">{{ message }}</p>              
             </v-col>
           </v-row>
         </v-container>
@@ -76,9 +76,9 @@
       data: {
         message: 'テスト入力だよー',
         url: "https://www.youtube.com/watch?v=ziSp0U-JhMU",
-        check_rinfont: true,
-        check_honokamin: true,
-        check_utamin_hoshi0: true,
+        isRinfont: true,
+        isHonokamin: true,
+        isUtaminHoshi0: true,
       },
       computed: {
         thum: function() {
